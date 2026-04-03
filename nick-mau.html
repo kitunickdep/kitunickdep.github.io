@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>200 Nick Mẫu Đẹp — FF, Liên Quân, PUBG, TikTok | NickDep.Com</title>
+<meta name="description" content="200 nick mẫu đẹp sẵn có cho Free Fire, Liên Quân, PUBG, TikTok. Đủ phong cách: ngầu, cute, anime, tên tiếng Việt. Click sao chép ngay.">
+<link rel="canonical" href="https://kitunickdep.github.io/nick-mau.html">
+<link rel="stylesheet" href="shared.css">
+<style>
+.filter-bar {
+  display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 18px;
+}
+.filter-btn {
+  padding: 6px 14px; border-radius: 20px;
+  border: 1px solid var(--g2); background: var(--white);
+  font-size: 13px; font-weight: 600; color: var(--g4);
+  cursor: pointer; transition: all .17s; font-family: var(--font);
+}
+.filter-btn:hover { border-color: var(--pink); color: var(--pink); }
+.filter-btn.on { background: var(--pink); color: var(--white); border-color: var(--pink); }
+
+.search-row { position: relative; max-width: 360px; margin-bottom: 22px; }
+.search-row input {
+  width: 100%; padding: 10px 38px 10px 16px;
+  border: 1.5px solid var(--g2); border-radius: 24px;
+  background: var(--white); font-family: var(--font);
+  font-size: 14px; outline: none; transition: border-color .2s;
+}
+.search-row input:focus { border-color: var(--pink); box-shadow: 0 0 0 3px rgba(237,28,84,.08); }
+.search-row svg { position: absolute; right: 13px; top: 50%; transform: translateY(-50%); color: var(--g3); pointer-events: none; }
+
+.nick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 10px;
+}
+.nick-card {
+  background: var(--white); border: 1px solid var(--g2);
+  border-radius: var(--r); padding: 16px 14px 13px;
+  cursor: pointer; transition: all .18s; text-align: center;
+  position: relative; overflow: hidden;
+}
+.nick-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background: var(--pink); transform: scaleX(0); transition: transform .18s; transform-origin: left;
+}
+.nick-card:hover { border-color: var(--pink-mid); transform: translateY(-2px); box-shadow: var(--sh-pink); }
+.nick-card:hover::before { transform: scaleX(1); }
+.nick-card.copied { border-color: var(--pink); background: var(--pink-light); }
+.nick-text {
+  font-size: 15px; font-weight: 700; color: var(--black);
+  word-break: break-all; line-height: 1.45; margin-bottom: 7px;
+  font-family: 'Segoe UI Emoji','Apple Color Emoji',sans-serif;
+}
+.nick-tag {
+  font-size: 10.5px; color: var(--g3); text-transform: uppercase;
+  letter-spacing: .4px; font-weight: 700;
+}
+.nick-copy-hint {
+  position: absolute; bottom: 7px; right: 9px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--pink-light); color: var(--pink);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity .17s;
+}
+.nick-card:hover .nick-copy-hint { opacity: 1; }
+
+.count-label { font-size: 13px; color: var(--g3); font-weight: 600; margin-bottom: 14px; }
+
+@media (max-width: 480px) {
+  .nick-grid { grid-template-columns: repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+<main>
+  <div class="page-header">
+    <div class="container-sm">
+      <div class="breadcrumb">
+        <a href="index.html">Trang chủ</a> ›
+        <span>Nick mẫu</span>
+      </div>
+      <h1>200 Nick Mẫu Đẹp</h1>
+      <p>Lọc theo game hoặc phong cách — click vào nick để sao chép ngay. Muốn tạo nick theo tên riêng → <a href="https://nickdep.com" target="_blank" style="color:var(--pink);font-weight:700;">nickdep.com</a></p>
+    </div>
+  </div>
+
+  <div class="container section">
+    <div class="filter-bar" id="filterBar"></div>
+    <div class="search-row">
+      <input type="text" id="searchInput" placeholder="Tìm nick..." oninput="render()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
+    <div class="count-label" id="countLabel"></div>
+    <div class="nick-grid" id="nickGrid"></div>
+    <div class="divider"></div>
+    <p style="font-size:13px;color:var(--g3);text-align:center;">
+      Tạo nick theo tên bạn với AI → <a href="https://nickdep.com" target="_blank" style="color:var(--pink);font-weight:700;">nickdep.com</a> · Xem thêm: <a href="ki-tu-dac-biet.html" style="color:var(--pink);font-weight:700;">Bảng kí tự đặc biệt</a>
+    </p>
+  </div>
+</main>
+
+<script src="shared.js"></script>
+<script>
+const TAGS = ['Tất cả','FF','LQ','PUBG','PT','TikTok','Nam','Nữ','Ngầu','Cute','Tên VN','Anime','Hài','Đơn giản'];
+let activeTag = 'Tất cả';
+
+const NICKS = [
+  {t:'꧁☠︎ŦhE_KiLLeR☠︎꧂',g:'FF · Nam · Ngầu'},{t:'꧁༺ᴮᴬᴰʙᴏʏ༻꧂',g:'FF · Nam · Ngầu'},
+  {t:'✞𝔇𝔢𝔞𝔡𝔰𝔥𝔬𝔱✞',g:'FF · Nam · Ngầu'},{t:'꧁ᴳᵒᵈ·ᴼꜰ·ᴷɪʟʟ꧂',g:'FF · Nam · Ngầu'},
+  {t:'⚔️ŦʜE_SɴɪᴘeR⚔️',g:'FF · Nam · Ngầu'},{t:'꧁𝕯𝖆𝖗𝖐𝕴𝖒𝖕꧂',g:'FF · Nam · Ngầu'},
+  {t:'《✦NoMercY✦》',g:'FF · Nam · Ngầu'},{t:'⚡ZeRo_ᴴᵉˡˡ⚡',g:'FF · Nam · Ngầu'},
+  {t:'꧁ᴮᴸᴬᶜᴷ·ᴿᴱᴬᴾeʀ꧂',g:'FF · Nam · Ngầu'},{t:'✠𝓓𝓮𝓼𝓽𝓻𝓸𝔂𝓮𝓻✠',g:'FF · Nam · Ngầu'},
+  {t:'꧁☯𝐏𝐡𝐞𝐧𝐢𝐱_𝐑𝐢𝐬𝐞☯꧂',g:'FF · Nam · Ngầu'},{t:'꧁ꜱɪʟᴇɴᴛ_ᴋɪʟʟᴇʀ꧂',g:'FF · Nam · Ngầu'},
+  {t:'《ᴮᴸᴬᶜᴷ_ᴷɴɪɢᴴᵀ》',g:'FF · Nam · Ngầu'},{t:'꧁✿𝓓ả𝓷𝓱𝓎ê𝓾✿꧂',g:'FF · Nữ · Cute'},
+  {t:'🎀𝒫ʀɪɴᴄᴇss🌸',g:'FF · Nữ · Cute'},{t:'꧁💗𝓛𝓸𝓿𝓮𝓡𝓸𝓼𝓮💗꧂',g:'FF · Nữ · Cute'},
+  {t:'✿𝓑𝓾𝓷𝓷𝔂·𝓖𝓲𝓻𝓵✿',g:'FF · Nữ · Cute'},{t:'🌸ꜱᴡᴇᴇᴛ·ᴋɪʟʟᴇʀ🌸',g:'FF · Nữ · Cute'},
+  {t:'꧁🌺𝓝ữ_𝓗𝓸à𝓷𝓰🌺꧂',g:'FF · Nữ · Cute'},{t:'💕(✿◠‿◠)𝑸𝒖𝒆𝒆𝒏💕',g:'FF · Nữ · Cute'},
+  {t:'🌙𝓒ả𝓷𝓱_Đê𝓶🌙',g:'FF · Nữ · Cute'},{t:'꧁🦋𝓜ướ𝓽_𝓥ũ🦋꧂',g:'FF · Nữ · Cute'},
+  {t:'★𝒢𝒾𝓇𝓁_𝒮𝓃𝒾𝓅𝑒𝓇★',g:'FF · Nữ · Cute'},
+  {t:'〖⚡ᴴᵉˡˡ_ʙʟᴀᴅᴇ⚡〗',g:'LQ · Nam · Ngầu'},{t:'☬𝕬𝖗𝖎𝖊𝖘·ᴳᵒᵈ☬',g:'LQ · Nam · Ngầu'},
+  {t:'꧁ᴰᴬᴿᴷ_ᴸᴵᴳᴴᵀ꧂',g:'LQ · Nam · Ngầu'},{t:'⟨⟨ᴮʟᴀᴄᴋ_ᴾᴬɴᴛʜᴱʀ⟩⟩',g:'LQ · Nam · Ngầu'},
+  {t:'《亗ShadowKing亗》',g:'LQ · Nam · Ngầu'},{t:'꧁彡HᴇxHᴜɴᴛᴇʀ彡꧂',g:'LQ · Nam · Ngầu'},
+  {t:'✞𝒮𝒾𝓁𝑒𝓃𝓉_𝒮𝓉𝑜𝓇𝓂✞',g:'LQ · Nam · Ngầu'},{t:'⚜ᴿᴼʏᴬᴸ_ᴷɴɪɢʜᴛ⚜',g:'LQ · Nam · Ngầu'},
+  {t:'【♛ᴳʳᴬɴᴰ_ᴹᴬˢᵀᴱʀ♛】',g:'LQ · Nam · Ngầu'},{t:'⚜𝐇𝐨𝐧𝐨𝐫_𝐁𝐞𝐟𝐨𝐫𝐞_𝐆𝐥𝐨𝐫𝐲⚜',g:'LQ · Nam · Ngầu'},
+  {t:'꧁🏹𝐀𝐫𝐫𝐨𝐰_𝐨𝐟_𝐃𝐞𝐬𝐭𝐢𝐧𝐲꧂',g:'LQ · Nam · Ngầu'},{t:'✦𝑾𝒊𝒏𝒅_𝑾𝒂𝒍𝒌𝒆𝒓✦',g:'LQ · Nam · Ngầu'},
+  {t:'🌸𝐶ẩ𝑚_𝑇ú_𝑄𝑢ỳ𝑛ℎ🌸',g:'LQ · Nữ · Cute'},{t:'꧁🌺𝓢ắ𝓬_𝓗ươ𝓷𝓰🌺꧂',g:'LQ · Nữ · Cute'},
+  {t:'✿(◕‿◕)𝑀ộ𝑛𝑔𝑀ơ✿',g:'LQ · Nữ · Cute'},{t:'💗𝓢𝓸𝓷𝓰_𝓣𝓪𝓷💗',g:'LQ · Nữ · Cute'},
+  {t:'꧁🦋Nàng·Tiên🦋꧂',g:'LQ · Nữ · Cute'},{t:'꧁🌙𝑀𝑜𝑜𝑛_𝐸𝑐𝑙𝑖𝑝𝑠𝑒꧂',g:'LQ · Nữ · Cute'},
+  {t:'🌺𝐺𝑟𝑎𝑐𝑒_𝑢𝑛𝑑𝑒𝑟_𝐹𝑖𝑟𝑒🌺',g:'LQ · Nữ · Cute'},
+  {t:'꧁⚡𝙎𝙤𝙡𝙤_𝙆𝙞𝙣𝙜⚡꧂',g:'PUBG · Nam'},{t:'《🎯ᴴᵉᴬᴰˢᴴᴼᵀ🎯》',g:'PUBG · Nam'},
+  {t:'✞𝘿𝙤𝙢𝙞𝙣𝙖𝙩𝙤𝙧✞',g:'PUBG · Nam'},{t:'꧁ᴳʰᴼˢᵀ·ᴿɪᴅᴱʀ꧂',g:'PUBG · Nam'},
+  {t:'🔫𝗦𝗻𝗶𝗽𝗲𝗿_𝗘𝗹𝗶𝘁𝗲🔫',g:'PUBG · Nam'},{t:'꧁⚔𝐼𝑟𝑜𝑛_𝑊𝑖𝑙𝑙⚔꧂',g:'PUBG · Nam'},
+  {t:'🔫𝑇𝑎𝑐𝑡𝑖𝑐𝑎𝑙_𝐺𝑒𝑛𝑖𝑢𝑠🔫',g:'PUBG · Nam'},{t:'꧁⚡𝐵𝑢𝑙𝑙𝑒𝑡_𝑊𝑖𝑧𝑎𝑟𝑑⚡꧂',g:'PUBG · Nam'},
+  {t:'🎯𝐸𝑦𝑒_𝑜𝑓_𝑆𝑡𝑜𝑟𝑚🎯',g:'PUBG · Nam'},{t:'꧁☠𝐷𝑒𝑎𝑡ℎ_𝑍𝑜𝑛𝑒☠꧂',g:'PUBG · Nam'},
+  {t:'꧁🌈𝒢𝒶𝓂𝑒_𝒬𝓊𝑒𝑒𝓃꧂',g:'PT · Nữ'},{t:'🎮𝒞𝓊𝓉𝑒_𝒫𝓁𝒶𝓎𝑒𝓇🎮',g:'PT · Unisex'},
+  {t:'🌟𝒮𝓊𝓅𝑒𝓇_𝒮𝓉𝒶𝓇🌟',g:'PT · Unisex'},{t:'꧁🏆𝒯𝑜𝓅_𝒫𝓁𝒶𝓎𝑒𝓇꧂',g:'PT · Nam'},
+  {t:'🎯𝒢𝑜𝓁𝒹_𝒮𝓉𝒶𝓇🌟',g:'PT · Unisex'},
+  {t:'✦ᴸɪᴠɪɴɢ_𝑀ʸ_𝐿𝑖𝑓𝑒✦',g:'TikTok · Unisex'},{t:'꧁𝓥𝓲𝓫𝓮𝓼_𝓞𝓷𝓵𝔂꧂',g:'TikTok · Unisex'},
+  {t:'🎵𝑆𝑜𝑢𝑙_𝑀𝑢𝑠𝑖𝑐🎵',g:'TikTok · Unisex'},{t:'✨𝒟𝓇𝑒𝒶𝓂_𝒞𝒽𝒶𝓈𝑒𝓇✨',g:'TikTok · Unisex'},
+  {t:'꧁🌙𝑁𝑖𝑔ℎ𝑡_𝑂𝑤𝑙🌙꧂',g:'TikTok · Unisex'},{t:'💫𝒢𝓁𝑜𝓌_𝒰𝓅💫',g:'TikTok · Nữ'},
+  {t:'🎀𝑆𝑜𝑓𝑡_𝐺𝑖𝑟𝑙🎀',g:'TikTok · Nữ'},{t:'⭐𝒲𝒶𝓃𝒹𝑒𝓇𝓁𝑒𝓈𝓈⭐',g:'TikTok · Unisex'},
+  {t:'꧁🔥𝐵𝑜𝑠𝑠_𝑀𝑜𝑣𝑒𝑠🔥꧂',g:'TikTok · Nam'},{t:'✿𝐶ℎ𝑖𝑙𝑙_𝐵𝑒𝑎𝑢𝑡𝑦✿',g:'TikTok · Nữ'},
+  {t:'꧁彡𝑲_𝑷𝑶𝑷_𝑭𝒂𝒏彡꧂',g:'TikTok · Nữ'},{t:'✨𝒢𝓁𝒾𝓉𝓉𝑒𝓇_𝒢𝒶𝓁✨',g:'TikTok · Nữ'},
+  {t:'🎵𝑉𝑖𝑏𝑒_𝐶ℎ𝑒𝑐𝑘🎵',g:'TikTok · Unisex'},{t:'💫𝑀𝑎𝑖𝑛_𝐶ℎ𝑎𝑟꧂',g:'TikTok · Unisex'},
+  {t:'🌟𝑆𝑒𝑟𝑜𝑡𝑜𝑛𝑖𝑛_𝑆𝑢𝑝𝑝𝑙𝑦🌟',g:'TikTok · Unisex'},
+  {t:'꧁𝓜𝓲𝓷𝓱_𝓐𝓷𝓱꧂',g:'Tên VN · Nữ'},{t:'✿𝓣ú𝓷𝓰_𝓛â𝓶✿',g:'Tên VN · Nữ'},
+  {t:'🌸𝓢𝓸𝓷𝓰·𝓗ươ𝓷𝓰🌸',g:'Tên VN · Nữ'},{t:'꧁💗𝓚𝓱ả_𝓐𝓲💗꧂',g:'Tên VN · Nữ'},
+  {t:'🎀𝓛𝓸𝓪𝓷·𝓗ươ𝓷𝓰🎀',g:'Tên VN · Nữ'},{t:'꧁✨𝓗ồ𝓷𝓰_Â𝓷✨꧂',g:'Tên VN · Nữ'},
+  {t:'★𝓓ươ𝓷𝓰_𝓗à𝓷𝓰★',g:'Tên VN · Nam'},{t:'⚡𝓗ù𝓷𝓰_𝓜ạ𝓷𝓱⚡',g:'Tên VN · Nam'},
+  {t:'꧁𝕿𝖆̂𝖓_𝕾𝖎𝖓𝖍꧂',g:'Tên VN · Nam'},{t:'✦𝒩𝑔𝑜̣𝒸_𝑀𝒾𝓃ℎ✦',g:'Tên VN · Nam'},
+  {t:'꧁🌺𝓢ắ𝓷_𝓖á𝓲🌺꧂',g:'Tên VN · Nam'},{t:'✦𝓝𝓰𝓾𝔂ê𝓷_𝓚ℎ𝓸𝓲✦',g:'Tên VN · Nam'},
+  {t:'🎀𝓣𝓱𝓾_𝓗ươ𝓷𝓰🎀',g:'Tên VN · Nữ'},{t:'꧁💗𝓑ả𝓸_𝓣𝓻â𝓷💗꧂',g:'Tên VN · Nữ'},
+  {t:'꧁彡𝑵𝒂𝒓𝒖𝒕𝒐彡꧂',g:'Anime · Nam'},{t:'🔥𝑼𝒄𝒉𝒊𝒉𝒂_𝑺𝒂𝒔𝒖𝒌𝒆🔥',g:'Anime · Nam'},
+  {t:'✦𝑻𝒐𝒌𝒚𝒐_𝑮𝒉𝒐𝒖𝒍✦',g:'Anime · Nam'},{t:'꧁⚡𝑫𝒆𝒎𝒐𝒏_𝑺𝒍𝒂𝒚𝒆𝒓⚡꧂',g:'Anime · Nam'},
+  {t:'🌸𝑺𝒂𝒌𝒖𝒓𝒂_𝑯𝒊𝒎𝒆🌸',g:'Anime · Nữ'},{t:'꧁💗𝑹𝒆𝒊_𝑨𝒚𝒂𝒏𝒂𝒎𝒊💗꧂',g:'Anime · Nữ'},
+  {t:'✿𝑨𝒔𝒖𝒏𝒂_𝒀𝒖𝒌𝒊✿',g:'Anime · Nữ'},{t:'꧁🌙𝑺𝒆𝒊𝒍𝒐𝒓_𝑴𝒐𝒐𝒏🌙꧂',g:'Anime · Nữ'},
+  {t:'⚔🗡𝑨𝒌𝒂𝒎𝒆𝒈𝒂𝑲𝒊𝒍𝒍⚔',g:'Anime · Unisex'},{t:'✦𝑻𝒊𝒕𝒂𝒏_𝑺𝒍𝒂𝒚𝒆𝒓✦',g:'Anime · Nam'},
+  {t:'彡★ÐɑʀK·ÂηɢeL★彡',g:'Ngầu · Hoa văn'},{t:'꧁亗ĐạI·CÀ·TặC亗꧂',g:'Ngầu · Hoa văn'},
+  {t:'【シ𝓜𝓪𝓭_𝓒𝓸𝓭𝓮𝓻シ】',g:'Ngầu · Hoa văn'},{t:'༺✞𝐁𝐥𝐨𝐨𝐝𝐲✞༻',g:'Ngầu · Gothic'},
+  {t:'꧁⚜𝕷𝖊𝖌𝖊𝖓𝖉⚜꧂',g:'Ngầu · Gothic'},{t:'✠𝕶𝖎𝖑𝖑𝖊𝖗_𝕳𝖆𝖍𝖆✠',g:'Ngầu · Gothic'},
+  {t:'꧁✦𝐄𝐭𝐞𝐫𝐧𝐚𝐥_𝐅𝐥𝐚𝐦𝐞꧂',g:'Ngầu · EN'},{t:'⚡𝑺𝒕𝒐𝒓𝒎_𝑩𝒓𝒊𝒏𝒈𝒆𝒓⚡',g:'Ngầu · EN'},
+  {t:'꧁🌑𝐕𝐨𝐢𝐝_𝐖𝐚𝐥𝐤𝐞𝐫꧂',g:'Ngầu · EN'},{t:'✠𝐅𝐫𝐨𝐬𝐭_𝐁𝐢𝐭𝐞✠',g:'Ngầu · EN'},
+  {t:'🔱𝐓𝐡𝐮𝐧𝐝𝐞𝐫_𝐋𝐨𝐫𝐝🔱',g:'Ngầu · EN'},{t:'꧁⚡𝐵𝑙𝑎𝑧𝑒_𝑀𝑎𝑠𝑡𝑒𝑟꧂',g:'Ngầu · EN'},
+  {t:'꧁🌈𝑅𝑎𝑖𝑛𝑏𝑜𝑤_𝑆𝑜𝑢𝑙꧂',g:'Cute · Nữ'},{t:'✿𝐶𝑙𝑜𝑢𝑑_𝑁𝑖𝑛𝑒✿',g:'Cute · Unisex'},
+  {t:'🌸𝑃𝑒𝑡𝑎𝑙_𝑆𝑡𝑜𝑟𝑚🌸',g:'Cute · Nữ'},{t:'꧁🦄𝑈𝑛𝑖𝑐𝑜𝑟𝑛_𝐵𝑎𝑒꧂',g:'Cute · Nữ'},
+  {t:'💕𝐵𝑢𝑏𝑏𝑙𝑒_𝑇𝑒𝑎_𝑄💕',g:'Cute · Nữ'},{t:'✦𝑆ℎ𝑎𝑑𝑜𝑤_𝐻𝑒𝑎𝑟𝑡✦',g:'Cute · Nữ'},
+  {t:'🌙𝑀𝑜𝑜𝑛𝑙𝑖𝑔ℎ𝑡_𝑅𝑜𝑠𝑒🌹',g:'Cute · Nữ'},{t:'💫𝒮𝓉𝒶𝓇𝒹𝓊𝓈𝓉_𝒟𝓇𝑒𝒶𝓂꧂',g:'Cute · Nữ'},
+  {t:'🦋𝑊𝑖𝑙𝑑_𝐵𝑒𝑎𝑢𝑡𝑦🦋',g:'Cute · Nữ'},
+  {t:'ᴷɪʟʟ™',g:'Ngắn · Nam'},{t:'ᴮᴬᴰ☠',g:'Ngắn · Nam'},{t:'ʜᴀᴄᴋ✓',g:'Ngắn · Nam'},
+  {t:'ᴮᴼˢˢ⚡',g:'Ngắn · Nam'},{t:'✓ᴱᴸᴵᵀᴱ',g:'Ngắn · Nam'},{t:'xXx·GG',g:'Ngắn · Nam'},
+  {t:'✿Líu✿',g:'Ngắn · Nữ'},{t:'💕Miu💕',g:'Ngắn · Nữ'},{t:'ɴᴏᴏʙ≠',g:'Ngắn · Hài'},
+  {t:'ᴳᴳ™',g:'Ngắn · Hài'},
+  {t:'ᴸᴬᴳ·ᴵˢ·ᴿᴱᴬᴸ😭',g:'Hài · Unisex'},{t:'ᴺᴼᴼᴮ·ᴮᵁᵀ·ᴸᵁᶜᴷᵞ',g:'Hài · Unisex'},
+  {t:'ᴷɪʟʟ·ᴹᴱ·ᴾˡˢ🙏',g:'Hài · Unisex'},{t:'ᴵ_ᴾʳᴱˢˢ_ᵂʳᴼɴᴳ_ᴮᵁᵀᵀᴼɴ',g:'Hài · Unisex'},
+  {t:'ᴴᵉˡᵖ_ᴵ_ᶜᵃᶰᵗ_ᴬᴵᴹ',g:'Hài · Unisex'},{t:'ᴺᴼᵀ_ᴬ_ᴴᴬᶜᴷᴱᴿ_ᴵ_ˢᵂᴱᴬᴿ',g:'Hài · Unisex'},
+  {t:'·𝐿𝑢𝑛𝑎·',g:'Đơn giản · Nữ'},{t:'｡𝑆𝑡𝑒𝑙𝑙𝑎｡',g:'Đơn giản · Nữ'},
+  {t:'·𝒜𝓊𝓇𝑜𝓇𝒶·',g:'Đơn giản · Nữ'},{t:'｡𝒩𝑜𝓋𝒶｡',g:'Đơn giản · Nữ'},
+  {t:'·𝒮𝑜𝓁𝑒𝒾𝓁·',g:'Đơn giản · Unisex'},{t:'｡𝒜𝓇𝒸𝒶𝓃𝒶｡',g:'Đơn giản · Nữ'},
+  {t:'·𝒪𝓇𝒾𝑜𝓃·',g:'Đơn giản · Nam'},{t:'｡𝒵𝑒𝓊𝓈｡',g:'Đơn giản · Nam'},
+  {t:'·𝒜𝓁𝓅𝒽𝒶·',g:'Đơn giản · Nam'},{t:'｡𝐿𝑦𝓇𝒶｡',g:'Đơn giản · Nữ'},
+  {t:'ɴx001·ᴷɪʟʟ',g:'Code · Nam'},{t:'7ᴳ·ᴴᵃᶜᴷ3ᴿ',g:'Code · Nam'},
+  {t:'0ne_ʜɪᴛ·ᴷO',g:'Code · Nam'},{t:'ʙx99_ᴮᴼˢˢ',g:'Code · Nam'},
+  {t:'《𝒜𝓁𝓅𝒽𝒶_𝒲𝑜𝓁𝒻》',g:'Ngầu · Script'},{t:'꧁𝒬𝓊𝑒𝑒𝓃_𝒪𝒻_𝒩𝒾𝑔𝒽𝓉꧂',g:'Cute · Script'},
+  {t:'✦𝒮𝒾𝓁𝓋𝑒𝓇_𝑀𝑜𝑜𝓃✦',g:'Cute · Script'},{t:'🌟𝓖𝓸𝓵𝓭𝓮𝓷·𝓦𝓲𝓷𝓰𝓼🌟',g:'Cute · Script'},
+  {t:'🌙𝒟𝒶𝓌𝓃_𝒮𝑒𝑒𝓀𝑒𝓇🌙',g:'Ngầu · EN'},
+];
+
+function render() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const filtered = NICKS.filter(n => {
+    const tagMatch = activeTag === 'Tất cả' || n.g.includes(activeTag);
+    const qMatch = !q || n.t.toLowerCase().includes(q) || n.g.toLowerCase().includes(q);
+    return tagMatch && qMatch;
+  });
+  document.getElementById('countLabel').textContent = `${filtered.length} nick`;
+  document.getElementById('nickGrid').innerHTML = filtered.length
+    ? filtered.map(n => `
+        <div class="nick-card" onclick="copyNickCard(this)">
+          <div class="nick-copy-hint">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="nick-text">${n.t}</div>
+          <div class="nick-tag">${n.g}</div>
+        </div>`).join('')
+    : '<p style="color:var(--g3);padding:20px 0;font-size:14px;">Không tìm thấy nick phù hợp.</p>';
+}
+
+function buildFilters() {
+  document.getElementById('filterBar').innerHTML = TAGS.map(t =>
+    `<button class="filter-btn${t===activeTag?' on':''}" onclick="setTag('${t}')">${t}</button>`
+  ).join('');
+}
+
+function setTag(t) { activeTag = t; buildFilters(); render(); }
+
+function copyNickCard(el) {
+  const text = el.querySelector('.nick-text').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    el.classList.add('copied');
+    setTimeout(() => el.classList.remove('copied'), 900);
+    showToast('✓ Đã sao chép nick!');
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => { buildFilters(); render(); });
+</script>
+</body>
+</html>

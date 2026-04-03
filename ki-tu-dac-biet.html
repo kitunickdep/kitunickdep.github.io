@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bảng Kí Tự Đặc Biệt Unicode — NickDep.Com</title>
+<meta name="description" content="Bảng kí tự đặc biệt Unicode đầy đủ nhất: trái tim, nơ, khoảng trống, chữ nhỏ, hoa văn, kaomoji... Click sao chép ngay, dùng cho FF, Liên Quân, TikTok.">
+<link rel="canonical" href="https://kitunickdep.github.io/ki-tu-dac-biet.html">
+<link rel="stylesheet" href="shared.css">
+<style>
+.char-category { margin-bottom: 36px; }
+.cat-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px;
+}
+.cat-title {
+  font-size: 13px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .8px; color: var(--pink); white-space: nowrap;
+}
+.cat-line { flex: 1; height: 1px; background: var(--pink-mid); }
+.cat-count { font-size: 11px; color: var(--g3); font-weight: 600; }
+
+.char-grid { display: flex; flex-wrap: wrap; gap: 7px; }
+.char-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 46px; height: 46px; padding: 0 8px;
+  background: var(--white); border: 1px solid var(--g2);
+  border-radius: 8px; font-size: 19px; cursor: pointer;
+  transition: all .17s; user-select: none;
+  font-family: 'Segoe UI Emoji','Apple Color Emoji',sans-serif;
+  position: relative;
+}
+.char-btn:hover {
+  border-color: var(--pink); background: var(--pink-light);
+  transform: translateY(-3px); box-shadow: var(--sh-pink);
+}
+.char-btn:active { transform: scale(.93); transition-duration: .08s; }
+.char-btn.flash {
+  background: var(--pink) !important; color: var(--white) !important;
+  border-color: var(--pink) !important; transform: scale(1.12) !important;
+}
+.char-btn.small-text { font-size: 14px; }
+.char-btn.kaomoji { font-size: 13px; min-width: 80px; padding: 0 10px; }
+
+/* sticky category nav */
+.cat-nav {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  padding: 14px 0 18px;
+}
+.cat-nav-btn {
+  padding: 5px 12px; border-radius: 20px;
+  border: 1px solid var(--g2); background: var(--white);
+  font-size: 12px; font-weight: 600; color: var(--g4);
+  cursor: pointer; transition: all .15s; font-family: var(--font);
+}
+.cat-nav-btn:hover { border-color: var(--pink); color: var(--pink); }
+</style>
+</head>
+<body>
+<main>
+  <div class="page-header">
+    <div class="container-sm">
+      <div class="breadcrumb">
+        <a href="index.html">Trang chủ</a> ›
+        <span>Kí tự đặc biệt</span>
+      </div>
+      <h1>Bảng Kí Tự Đặc Biệt Unicode</h1>
+      <p>Click vào kí tự để sao chép tức thì. Dùng được cho Free Fire, Liên Quân, PUBG, TikTok, Facebook và mọi nền tảng hỗ trợ Unicode.</p>
+    </div>
+  </div>
+
+  <div class="container section">
+    <div id="catNav" class="cat-nav"></div>
+    <div id="charContent"></div>
+
+    <div class="divider"></div>
+    <p style="font-size:13px;color:var(--g3);text-align:center;">
+      Cần tạo nick tự động với AI? → <a href="https://nickdep.com" target="_blank" style="color:var(--pink);font-weight:700;">nickdep.com</a> · Xem thêm: <a href="nick-mau.html" style="color:var(--pink);font-weight:700;">200 Nick mẫu đẹp</a>
+    </p>
+  </div>
+</main>
+
+<script src="shared.js"></script>
+<script>
+const CATS = [
+  { id:'space', icon:'⬜', title:'Khoảng trống & Ẩn hình',
+    items:['　','᠌','​','‌','‍','⁠','⠀','ㅤ','ᅠ',' ',' ',' ',' ',' ',' ','‎','‏','ᅟ'] },
+  { id:'heart', icon:'❤️', title:'Trái tim',
+    items:['♥','❤','🤍','💗','💓','💘','💝','💖','💞','❣','♡','💕','🩷','🫀','❤️‍🔥','💔','🖤','🤎','💛','💚','💙','💜','🧡','❤️‍🩹'] },
+  { id:'ribbon', icon:'🎀', title:'Nơ & Dễ thương',
+    items:['🎀','❀','✿','❃','❋','꒰','꒱','˘','ₒ','°','•','·','✦','✧','✩','✪','★','☆','⭐','🌟','💫','✨','⋆','˚','₊'] },
+  { id:'crown', icon:'👑', title:'Vương miện & Đặc biệt',
+    items:['♔','♕','♚','♛','👑','🔱','⚜','☬','✡','⎊','⛧','⚝','✠','☩','✞','⛦','⚕','☤','⚶','☽','☾','⚸','♾','∞'] },
+  { id:'flower', icon:'🌸', title:'Hoa & Thiên nhiên',
+    items:['🌸','🌺','🌻','🌹','🌷','🌼','💐','🍀','🌿','🍃','🍂','🍁','🌾','☘','⚘','❁','✾','❊','❋','✽','✺','✹','✸','✷','❀','✼'] },
+  { id:'thunder', icon:'⚡', title:'Sấm sét & Năng lượng',
+    items:['⚡','ϟ','☇','☈','🔥','💥','⚔','🗡','🔰','⚠','⚙','🔩','⚛','🌀','💢','💨','🌪','⚑','⛩','🗺','🔮','🧿','⚗'] },
+  { id:'music', icon:'🎵', title:'Âm nhạc & Nghệ thuật',
+    items:['♪','♫','♬','♩','♭','♮','♯','🎵','🎶','🎸','🎹','🎺','🎻','🥁','🎷','🎙','🎤','🎧','🎼','🎭','🎨','🖌','✏'] },
+  { id:'animal', icon:'🐾', title:'Con vật dễ thương (Kaomoji)',
+    items:['ʕ•ᴥ•ʔ','ᓚᘏᗢ','(=^･ω･^=)','(^•ω•^)','(◕ᴥ◕)','ʕ·ᴥ·ʔ','(ᵒ̤̑ ₒ̤̑)','(´・ω・`)','(=OwO=)','ᕙ(⇀‸↼‶)ᕗ','ʕ •ᴥ•ʔ','(ノ°∀°)ノ'] },
+  { id:'spirit', icon:'☯', title:'Tâm linh & Hoa văn',
+    items:['☯','☮','☸','卍','卐','☵','☲','☳','☴','☶','☷','ॐ','✡','☪','†','☦','♾','∞','⌘','✙','✚','✛','✜','✝','✞','✟','✠'] },
+  { id:'bracket', icon:'꧁', title:'Khung & Trang trí',
+    items:['꧁','꧂','༺','༻','『','』','【','】','《','》','〖','〗','「」','〈','〉','⌈','⌉','⌊','⌋','⟨','⟩','⦃','⦄','⟦','⟧','❮','❯'] },
+  { id:'cjk', icon:'亗', title:'Kí tự Trung · Nhật · Hoa văn',
+    items:['亗','彡','シ','ツ','ッ','ン','ス','ソ','〆','々','ヅ','ツ','乂','乃','之','⌦','꙰','ꙮ','ꚙ','ꜝ','ꜟ','ꝏ','꭛','ꞔ','ꭗ'] },
+  { id:'super', icon:'ᵃ', title:'Chữ nhỏ Superscript',
+    items:['ᵃ','ᵇ','ᶜ','ᵈ','ᵉ','ᶠ','ᵍ','ʰ','ⁱ','ʲ','ᵏ','ˡ','ᵐ','ⁿ','ᵒ','ᵖ','ʳ','ˢ','ᵗ','ᵘ','ᵛ','ʷ','ˣ','ʸ','ᶻ','⁰','¹','²','³','⁴','⁵','⁶','⁷','⁸','⁹'] },
+  { id:'script', icon:'𝓐', title:'Chữ kiểu Script / Cursive',
+    items:['𝓐','𝓑','𝓒','𝓓','𝓔','𝓕','𝓖','𝓗','𝓘','𝓙','𝓚','𝓛','𝓜','𝓝','𝓞','𝓟','𝓠','𝓡','𝓢','𝓣','𝓤','𝓥','𝓦','𝓧','𝓨','𝓩','𝓪','𝓫','𝓬','𝓭','𝓮','𝓯'] },
+  { id:'gothic', icon:'𝕬', title:'Chữ kiểu Gothic / Fraktur',
+    items:['𝕬','𝕭','𝕮','𝕯','𝕰','𝕱','𝕲','𝕳','𝕴','𝕵','𝕶','𝕷','𝕸','𝕹','𝕺','𝕻','𝕼','𝕽','𝕾','𝕿','𝖀','𝖁','𝖂','𝖃','𝖄','𝖅','𝖆','𝖇','𝖈','𝖉','𝖊','𝖋'] },
+  { id:'geo', icon:'◆', title:'Hình học & Ký hiệu',
+    items:['◆','◇','◈','◉','◊','○','●','◎','◐','◑','◒','◓','▲','△','▼','▽','◀','▶','◁','▷','⬡','⬢','⬣','⬤','⬥','⬦','⬧','⬨','⟐','⟡','⟢','⬠'] },
+  { id:'kaomoji', icon:'(◕‿◕)', title:'Mặt cười Kaomoji',
+    items:['(◕‿◕)','✌(◕‿-)✌','(ノ◕ヮ◕)ノ','(⌐■_■)','(¬‿¬)','(ʘᗩʘ)','(╥_╥)','(✿◠‿◠)','(≧◡≦)','(≧ω≦)','(｡◕‿◕｡)','(。♥‿♥。)','( ͡° ͜ʖ ͡°)','(ง°ل͜°)ง','(ʘ‿ʘ)','(づ｡◕‿‿◕｡)づ'] },
+];
+
+function buildChars() {
+  const nav = document.getElementById('catNav');
+  const content = document.getElementById('charContent');
+
+  nav.innerHTML = CATS.map(c =>
+    `<button class="cat-nav-btn" onclick="document.getElementById('cat-${c.id}').scrollIntoView({behavior:'smooth',block:'start'})">${c.icon} ${c.title.split(' ')[0]}</button>`
+  ).join('');
+
+  content.innerHTML = CATS.map(c => {
+    const isKaomoji = ['animal','kaomoji'].includes(c.id);
+    const isSmall = ['super','script','gothic'].includes(c.id);
+    const btnClass = isKaomoji ? 'char-btn kaomoji' : isSmall ? 'char-btn small-text' : 'char-btn';
+    return `
+      <div class="char-category" id="cat-${c.id}">
+        <div class="cat-header">
+          <div class="cat-title">${c.icon} ${c.title}</div>
+          <div class="cat-line"></div>
+          <div class="cat-count">${c.items.length} kí tự</div>
+        </div>
+        <div class="char-grid">
+          ${c.items.map(ch =>
+            `<button class="${btnClass}" onclick="flashCopy(this,'${encodeURIComponent(ch)}')" title="Sao chép">${ch}</button>`
+          ).join('')}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function flashCopy(el, encoded) {
+  const ch = decodeURIComponent(encoded);
+  navigator.clipboard.writeText(ch).then(() => {
+    el.classList.add('flash');
+    setTimeout(() => el.classList.remove('flash'), 550);
+    showToast('✓ Đã sao chép: ' + (ch.trim() || '[khoảng trống]'));
+  });
+}
+
+document.addEventListener('DOMContentLoaded', buildChars);
+</script>
+</body>
+</html>
