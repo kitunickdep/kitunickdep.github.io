@@ -9,10 +9,9 @@
 <link rel="stylesheet" href="shared.css">
 <style>
 .hero {
-  background: var(--white);
-  border-bottom: 1px solid var(--g2);
-  padding: 72px 24px 60px;
-  text-align: center; position: relative; overflow: hidden;
+  background: var(--white); border-bottom: 1px solid var(--g2);
+  padding: 72px 24px 60px; text-align: center;
+  position: relative; overflow: hidden;
 }
 .hero::before {
   content:''; position:absolute; inset:0;
@@ -47,11 +46,7 @@
   font-weight: 700; color: var(--black); line-height: 1.1;
 }
 .stat-lbl { font-size: 12px; color: var(--g3); font-weight: 600; margin-top: 3px; }
-
-/* FEATURES */
-.features-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-}
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .feat-card {
   background: var(--white); border: 1px solid var(--g2);
   border-radius: var(--rl); padding: 24px 20px;
@@ -72,19 +67,13 @@
   color: var(--pink); text-decoration: none;
 }
 .feat-link:hover { text-decoration: underline; }
-
-/* PLATFORMS */
 .platform-tags { display: flex; gap: 8px; flex-wrap: wrap; }
 .platform-tag {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 8px 16px; border-radius: 20px;
   background: var(--white); border: 1px solid var(--g2);
   font-size: 13px; font-weight: 600; color: var(--g5);
-  text-decoration: none; transition: all .18s;
 }
-.platform-tag:hover { border-color: var(--pink); color: var(--pink); background: var(--pink-light); }
-
-/* ABOUT STRIP */
 .about-strip {
   background: var(--white); border-top: 1px solid var(--g2); border-bottom: 1px solid var(--g2);
   padding: 40px 24px;
@@ -103,7 +92,6 @@
 .about-text h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
 .about-text p { font-size: 13px; color: var(--g4); line-height: 1.7; }
 .about-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-
 @media (max-width: 700px) {
   .features-grid { grid-template-columns: 1fr; }
   .hero { padding: 48px 20px 40px; }
@@ -113,7 +101,6 @@
 </head>
 <body>
 <main>
-  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-eyebrow">✦ Miễn phí · Không cần đăng ký</div>
@@ -122,7 +109,6 @@
       <div class="hero-actions">
         <a href="ki-tu-dac-biet.html" class="btn btn-pink">⌨️ Bảng kí tự đặc biệt</a>
         <a href="nick-mau.html" class="btn btn-outline">✨ 200 Nick mẫu đẹp</a>
-        <a href="https://nickdep.com" target="_blank" class="btn btn-pink">🚀 Vào NickDep.Com ↗</a>
       </div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">10K+</span><span class="stat-lbl">Kí tự Unicode</span></div>
@@ -133,7 +119,6 @@
     </div>
   </section>
 
-  <!-- FEATURES -->
   <section class="section">
     <div class="container">
       <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--g3);margin-bottom:20px;">Tính năng chính</p>
@@ -151,31 +136,29 @@
           <a href="nick-mau.html" class="feat-link">Xem nick mẫu →</a>
         </div>
         <div class="feat-card">
-          <div class="feat-icon">🚀</div>
-          <div class="feat-title">Tạo nick AI tại NickDep.Com</div>
-          <div class="feat-desc">Công cụ đầy đủ tại nickdep.com: nhập tên bất kỳ, AI tạo hàng chục biến thể với kí tự đặc biệt tự động.</div>
-          <a href="https://nickdep.com" target="_blank" class="feat-link">Truy cập ngay →</a>
+          <div class="feat-icon">📋</div>
+          <div class="feat-title">Thông tin pháp lý</div>
+          <div class="feat-desc">Trang thông tin minh bạch về bản quyền, chính sách bảo mật, điều khoản sử dụng và tuyên bố AI.</div>
+          <a href="about.html" class="feat-link">Xem giới thiệu →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PLATFORMS -->
   <section class="section" style="padding-top:0;">
     <div class="container">
       <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--g3);margin-bottom:16px;">Hỗ trợ nền tảng</p>
       <div class="platform-tags">
-        <a href="https://nickdep.com/ff" target="_blank" class="platform-tag">🎮 Free Fire</a>
-        <a href="https://nickdep.com/lien-quan" target="_blank" class="platform-tag">⚔️ Liên Quân Mobile</a>
-        <a href="https://nickdep.com/pubg" target="_blank" class="platform-tag">🔫 PUBG Mobile</a>
-        <a href="https://nickdep.com/tiktok" target="_blank" class="platform-tag">🎵 TikTok</a>
-        <a href="https://nickdep.com/facebook" target="_blank" class="platform-tag">📘 Facebook</a>
-        <a href="https://nickdep.com/play-together" target="_blank" class="platform-tag">🌈 Play Together</a>
+        <span class="platform-tag">🎮 Free Fire</span>
+        <span class="platform-tag">⚔️ Liên Quân Mobile</span>
+        <span class="platform-tag">🔫 PUBG Mobile</span>
+        <span class="platform-tag">🎵 TikTok</span>
+        <span class="platform-tag">📘 Facebook</span>
+        <span class="platform-tag">🌈 Play Together</span>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT STRIP -->
   <div class="about-strip">
     <div class="about-strip-inner">
       <div class="about-avatar">LS</div>
@@ -192,15 +175,14 @@
     </div>
   </div>
 
-  <!-- LEGAL QUICK LINKS -->
   <section class="section">
     <div class="container">
       <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--g3);margin-bottom:16px;">Thông tin pháp lý</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
         <a href="chinh-sach-bao-mat.html" class="btn btn-outline" style="font-size:13px;padding:8px 16px;">Chính sách bảo mật</a>
         <a href="dieu-khoan-su-dung.html" class="btn btn-outline" style="font-size:13px;padding:8px 16px;">Điều khoản sử dụng</a>
-        <a href="ban-quyen.html" class="btn btn-outline" style="font-size:13px;padding:8px 16px;">Bản quyền & DMCA</a>
-        <a href="tuyen-bo-ai.html" class="btn btn-outline" style="font-size:13px;padding:8px 16px;">Tuyên bố AI</a>
+        <a href="ban-quyen.html"          class="btn btn-outline" style="font-size:13px;padding:8px 16px;">Bản quyền & DMCA</a>
+        <a href="tuyen-bo-ai.html"        class="btn btn-outline" style="font-size:13px;padding:8px 16px;">Tuyên bố AI</a>
       </div>
     </div>
   </section>

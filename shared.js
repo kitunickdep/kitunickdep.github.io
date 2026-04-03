@@ -1,4 +1,4 @@
-/* shared.js — inject nav + footer + toast into every page */
+/* shared.js — inject nav + footer + toast vào mọi trang */
 
 const SITE_PAGES = [
   { href: 'index.html',               label: 'Trang chủ' },
@@ -22,15 +22,14 @@ function currentFile() {
 function injectNav() {
   const cur = currentFile();
   const allLinks = [...SITE_PAGES, ...LEGAL_PAGES];
+
   const desktopLinks = SITE_PAGES.map(p =>
     `<a href="${p.href}" class="${cur===p.href?'active':''}">${p.label}</a>`
-  ).join('') +
-  `<a href="https://nickdep.com" target="_blank" class="nav-cta">Vào NickDep.Com ↗</a>`;
+  ).join('');
 
   const mobileLinks = allLinks.map(p =>
     `<a href="${p.href}" class="${cur===p.href?'active':''}">${p.label}</a>`
-  ).join('') +
-  `<a href="https://nickdep.com" target="_blank" style="color:var(--pink);font-weight:700;">→ Vào NickDep.Com</a>`;
+  ).join('');
 
   document.body.insertAdjacentHTML('afterbegin', `
     <nav class="site-nav">
@@ -52,7 +51,7 @@ function injectNav() {
 }
 
 function injectFooter() {
-  const mainLinks = SITE_PAGES.map(p => `<a href="${p.href}">${p.label}</a>`).join('');
+  const mainLinks  = SITE_PAGES.map(p  => `<a href="${p.href}">${p.label}</a>`).join('');
   const legalLinks = LEGAL_PAGES.map(p => `<a href="${p.href}">${p.label}</a>`).join('');
 
   document.body.insertAdjacentHTML('beforeend', `
@@ -75,10 +74,9 @@ function injectFooter() {
         </div>
         <div class="footer-bottom">
           <strong>Công ty TNHH KiTuHAY</strong> · GPDKKD: 1102132198 do Sở Tài Chính tỉnh Tây Ninh cấp ngày 24/11/2025<br>
-          Số A4-57, đường BT9, Dự án Lavila Green City Tân An, P. Long An, T. Tây Ninh · Email: hotro@nickdep.com<br>
-          Chịu trách nhiệm nội dung: <strong>Lê Thanh Sang</strong> ·
-          <a href="https://orcid.org/0009-0006-1227-6866" target="_blank" style="color:rgba(255,255,255,.35)">ORCID</a> ·
-          <a href="https://kituhay.com/tac-gia/le-thanh-sang" target="_blank" style="color:rgba(255,255,255,.35)">Profile</a>
+          Số A4-57, đường BT9, Dự án Lavila Green City Tân An, P. Long An, T. Tây Ninh<br>
+          Email: hotro@nickdep.com · Chịu trách nhiệm nội dung: <strong>Lê Thanh Sang</strong> ·
+          <a href="https://orcid.org/0009-0006-1227-6866" target="_blank" style="color:rgba(255,255,255,.35)">ORCID</a>
         </div>
       </div>
     </footer>
@@ -89,19 +87,14 @@ function toggleDrawer() {
   document.getElementById('mobileDrawer').classList.toggle('open');
 }
 
-function showToast(msg = '✓ Đã sao chép!') {
+function showToast(msg) {
+  msg = msg || '✓ Đã sao chép!';
   const t = document.getElementById('copyToast');
   t.textContent = msg; t.classList.add('show');
-  clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 2200);
+  clearTimeout(t._t); t._t = setTimeout(function(){ t.classList.remove('show'); }, 2200);
 }
 
-function copyText(text, label = '') {
-  navigator.clipboard.writeText(text).then(() =>
-    showToast(label ? `✓ Đã sao chép: ${label}` : '✓ Đã sao chép!')
-  );
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
   injectNav();
   injectFooter();
 });
